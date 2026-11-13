@@ -2,7 +2,10 @@
 
 Proyecto de **Máquinas Digitales (Unillanos 2026-2)**. Una maqueta de peaje: un carrito se acerca, el sensor lo detecta, el sistema lo cuenta y la barrera se levanta. Desde una página web se supervisa el peaje y se cambia su modo.
 
-Integrantes: _(nombres)_
+Integrantes:
+
+- Kilian Vega — 160005140
+- Johan Morales — 160005122
 
 Basado en el repositorio de ejemplo del docente: [RonyTrespalacios/esp32-mensaje-web](https://github.com/RonyTrespalacios/esp32-mensaje-web).
 
