@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="640" viewBox="0 0 1060 640" role="img" aria-label="Diagrama de cableado: ESP32 al centro, servo a la izquierda, HC-SR04 arriba a la derecha con divisor de voltaje en ECHO, y rieles de 5 V y GND abajo."><style>.w{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}.pin{font-family:Consolas, Menlo, monospace;font-size:10px;fill:#dfe9e2;opacity:.55}.pin.on{opacity:1;font-weight:600}.lbl{font-family:Arial, Helvetica, sans-serif;font-size:12px;fill:#18211c}.lbl.m{fill:#5b6760}.mono{font-family:Consolas, Menlo, monospace}</style><rect width="1060" height="640" fill="#ffffff"/>
+      <defs>
+        <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#e7ece8" stroke-width="1"/></pattern>
+      </defs>
+      <rect width="1060" height="640" fill="url(#g)"/>
+
+      <!-- Rieles -->
+      <line x1="100" y1="560" x2="980" y2="560" stroke="#d2322b" stroke-width="6" stroke-linecap="round" opacity=".35"/>
+      <line x1="100" y1="600" x2="980" y2="600" stroke="#1b1b1b" stroke-width="6" stroke-linecap="round" opacity=".3"/>
+      <text x="992" y="564" class="lbl mono" font-weight="600" fill="#d2322b" style="fill:#d2322b">+5 V</text>
+      <text x="992" y="604" class="lbl mono" font-weight="600">GND</text>
+      <text x="100" y="628" class="lbl m">rieles de la protoboard</text>
+
+      <!-- ESP32 -->
+      <rect x="400" y="60" width="160" height="440" rx="8" fill="#1d2b24"/>
+      <rect x="440" y="66" width="80" height="22" rx="3" fill="none" stroke="#dfe9e2" stroke-opacity=".3"/>
+      <text x="480" y="81" text-anchor="middle" class="pin" style="font-size:8px">antena</text>
+      <rect x="450" y="104" width="60" height="70" rx="3" fill="#000" fill-opacity=".35" stroke="#dfe9e2" stroke-opacity=".3"/>
+      <text x="480" y="143" text-anchor="middle" class="pin on" style="font-size:10px">ESP32</text>
+      <text x="480" y="300" text-anchor="middle" class="pin" transform="rotate(-90 480 300)" style="font-size:11px">DOIT ESP32 DEVKIT V1</text>
+      <rect x="462" y="496" width="36" height="20" rx="3" fill="#6c7a72"/>
+      <text x="480" y="536" text-anchor="middle" class="lbl m">USB al PC</text>
+
+      <circle cx="400" cy="90" r="4" fill="#6d7a72"/><text x="412" y="93.5" text-anchor="start" class="pin">EN</text><circle cx="400" cy="118" r="4" fill="#6d7a72"/><text x="412" y="121.5" text-anchor="start" class="pin">VP</text><circle cx="400" cy="146" r="4" fill="#6d7a72"/><text x="412" y="149.5" text-anchor="start" class="pin">VN</text><circle cx="400" cy="174" r="4" fill="#6d7a72"/><text x="412" y="177.5" text-anchor="start" class="pin">D34</text><circle cx="400" cy="202" r="4" fill="#6d7a72"/><text x="412" y="205.5" text-anchor="start" class="pin">D35</text><circle cx="400" cy="230" r="4" fill="#6d7a72"/><text x="412" y="233.5" text-anchor="start" class="pin">D32</text><circle cx="400" cy="258" r="4" fill="#6d7a72"/><text x="412" y="261.5" text-anchor="start" class="pin">D33</text><circle cx="400" cy="286" r="4" fill="#6d7a72"/><text x="412" y="289.5" text-anchor="start" class="pin">D25</text><circle cx="400" cy="314" r="4" fill="#6d7a72"/><text x="412" y="317.5" text-anchor="start" class="pin">D26</text><circle cx="400" cy="342" r="4" fill="#6d7a72"/><text x="412" y="345.5" text-anchor="start" class="pin">D27</text><circle cx="400" cy="370" r="4" fill="#6d7a72"/><text x="412" y="373.5" text-anchor="start" class="pin">D14</text><circle cx="400" cy="398" r="4" fill="#6d7a72"/><text x="412" y="401.5" text-anchor="start" class="pin">D12</text><circle cx="400" cy="426" r="5.5" fill="#f2c14e"/><text x="412" y="429.5" text-anchor="start" class="pin on">D13</text><circle cx="400" cy="454" r="5.5" fill="#f2c14e"/><text x="412" y="457.5" text-anchor="start" class="pin on">GND</text><circle cx="400" cy="482" r="5.5" fill="#f2c14e"/><text x="412" y="485.5" text-anchor="start" class="pin on">VIN</text><circle cx="560" cy="90" r="4" fill="#6d7a72"/><text x="548" y="93.5" text-anchor="end" class="pin">D23</text><circle cx="560" cy="118" r="4" fill="#6d7a72"/><text x="548" y="121.5" text-anchor="end" class="pin">D22</text><circle cx="560" cy="146" r="4" fill="#6d7a72"/><text x="548" y="149.5" text-anchor="end" class="pin">TX0</text><circle cx="560" cy="174" r="4" fill="#6d7a72"/><text x="548" y="177.5" text-anchor="end" class="pin">RX0</text><circle cx="560" cy="202" r="4" fill="#6d7a72"/><text x="548" y="205.5" text-anchor="end" class="pin">D21</text><circle cx="560" cy="230" r="4" fill="#6d7a72"/><text x="548" y="233.5" text-anchor="end" class="pin">D19</text><circle cx="560" cy="258" r="5.5" fill="#f2c14e"/><text x="548" y="261.5" text-anchor="end" class="pin on">D18</text><circle cx="560" cy="286" r="5.5" fill="#f2c14e"/><text x="548" y="289.5" text-anchor="end" class="pin on">D5</text><circle cx="560" cy="314" r="4" fill="#6d7a72"/><text x="548" y="317.5" text-anchor="end" class="pin">TX2</text><circle cx="560" cy="342" r="4" fill="#6d7a72"/><text x="548" y="345.5" text-anchor="end" class="pin">RX2</text><circle cx="560" cy="370" r="4" fill="#6d7a72"/><text x="548" y="373.5" text-anchor="end" class="pin">D4</text><circle cx="560" cy="398" r="4" fill="#6d7a72"/><text x="548" y="401.5" text-anchor="end" class="pin">D2</text><circle cx="560" cy="426" r="4" fill="#6d7a72"/><text x="548" y="429.5" text-anchor="end" class="pin">D15</text><circle cx="560" cy="454" r="4" fill="#6d7a72"/><text x="548" y="457.5" text-anchor="end" class="pin">GND</text><circle cx="560" cy="482" r="4" fill="#6d7a72"/><text x="548" y="485.5" text-anchor="end" class="pin">3V3</text>
+
+      <!-- Cables ESP32 a rieles -->
+      <path class="w" stroke="#d2322b" d="M400 482H375V560"/>
+      <path class="w" stroke="#1b1b1b" d="M400 454H345V600"/>
+
+      <!-- Servo -->
+      <rect x="70" y="305" width="150" height="95" rx="8" fill="#ffffff" stroke="#18211c" stroke-width="1.5"/>
+      <circle cx="115" cy="352" r="15" fill="none" stroke="#18211c" stroke-width="1.5"/>
+      <path d="M115 352 L160 340" stroke="#18211c" stroke-width="5" stroke-linecap="round"/>
+      <text x="145" y="390" text-anchor="middle" class="lbl" font-weight="600">Servo SG90</text>
+      <text x="145" y="296" text-anchor="middle" class="lbl m">barrera</text>
+      <path class="w" stroke="#e0701a" d="M220 330H300V426H400"/>
+      <path class="w" stroke="#d2322b" d="M220 355H260V560"/>
+      <path class="w" stroke="#7b4a2a" d="M220 380H240V600"/>
+      <text x="226" y="324" class="lbl m" style="font-size:10px">naranja</text>
+      <text x="306" y="418" class="lbl" style="font-size:11px">señal → D13</text>
+
+      <!-- Condensador 470 µF entre rieles -->
+      <path class="w" stroke="#18211c" stroke-width="2" d="M150 560V575M150 585V600"/>
+      <line x1="138" y1="575" x2="162" y2="575" stroke="#18211c" stroke-width="2.5"/>
+      <path d="M138 588 Q150 580 162 588" fill="none" stroke="#18211c" stroke-width="2.5"/>
+      <text x="132" y="573" text-anchor="end" class="lbl mono" style="font-size:11px">+</text>
+      <text x="168" y="586" class="lbl" style="font-size:11px">470 µF (opcional)</text>
+
+      <!-- HC-SR04 -->
+      <rect x="770" y="45" width="150" height="105" rx="6" fill="#1f5f8b"/>
+      <circle cx="810" cy="80" r="21" fill="#d9dee2" stroke="#8a9399" stroke-width="3"/>
+      <circle cx="880" cy="80" r="21" fill="#d9dee2" stroke="#8a9399" stroke-width="3"/>
+      <text x="845" y="120" text-anchor="middle" style="font:600 11px Consolas, Menlo, monospace;fill:#e6f1fa">HC-SR04</text>
+      <g style="font:9px Consolas, Menlo, monospace;fill:#e6f1fa" text-anchor="middle">
+        <text x="800" y="142">GND</text><text x="830" y="142">ECHO</text><text x="860" y="142">TRIG</text><text x="890" y="142">VCC</text>
+      </g>
+      <text x="845" y="22" text-anchor="middle" class="lbl m" style="font-size:11px">dibujado por detrás: guíate por las etiquetas</text>
+
+      <!-- GND del sensor: rodea el módulo hasta el riel -->
+      <path class="w" stroke="#1b1b1b" d="M800 150V170H680V36H960V600"/>
+      <!-- VCC -->
+      <path class="w" stroke="#d2322b" d="M890 150V560"/>
+      <!-- TRIG -->
+      <path class="w" stroke="#c99300" d="M860 150V286H560"/>
+      <text x="740" y="304" class="lbl" style="font-size:11px">TRIG → D5</text>
+      <!-- ECHO con divisor -->
+      <path class="w" stroke="#23935a" d="M830 150V258H790"/>
+      <polyline class="w" stroke="#6c7a72" stroke-width="2.5" points="790,258 785,250 777,266 769,250 761,266 753,250 745,266 740,258"/>
+      <path class="w" stroke="#23935a" d="M740 258H560"/>
+      <text x="765" y="242" text-anchor="middle" class="lbl mono" style="font-size:11px">R1 1 kΩ</text>
+      <polyline class="w" stroke="#6c7a72" stroke-width="2.5" points="700,258 700,238 708,233 692,225 708,217 692,209 708,201 692,193 700,188 700,170"/>
+      <text x="688" y="216" text-anchor="end" class="lbl mono" style="font-size:11px">R2 2 kΩ</text>
+      <text x="574" y="250" class="lbl" style="font-size:11px">≈3.3 V → D18</text>
+      <text x="838" y="210" class="lbl m" style="font-size:10px">5 V</text>
+
+      <!-- Uniones -->
+      <g fill="#18211c">
+        <circle cx="700" cy="258" r="4.5"/><circle cx="700" cy="170" r="4.5"/>
+        <circle cx="375" cy="560" r="4.5"/><circle cx="260" cy="560" r="4.5"/><circle cx="890" cy="560" r="4.5"/><circle cx="150" cy="560" r="4.5"/>
+        <circle cx="345" cy="600" r="4.5"/><circle cx="240" cy="600" r="4.5"/><circle cx="960" cy="600" r="4.5"/><circle cx="150" cy="600" r="4.5"/>
+      </g>
+    </svg>

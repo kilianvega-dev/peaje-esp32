@@ -46,6 +46,10 @@ Basado en el repositorio de ejemplo del docente: [RonyTrespalacios/esp32-mensaje
 
 ## 3. Hardware y cableado
 
+![Esquema de cableado: HC-SR04 con divisor en ECHO y servo SG90 conectados a la ESP32](docs/cableado.svg)
+
+El HC-SR04 está dibujado por detrás para que los cables no se crucen: guiarse por las etiquetas de los pines (de frente el orden es VCC, TRIG, ECHO, GND).
+
 | Componente | Pin | ESP32 |
 |---|---|---|
 | HC-SR04 | VCC | VIN (5 V del USB) |
