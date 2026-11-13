@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editor de mensaje</title>
+  <title>Peaje IoT</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="card">
-    <h1>Mensaje para la ESP32</h1>
-    <p class="label">Mensaje actual:</p>
-    <p id="actual" class="actual">Cargando...</p>
+    <h1>Peaje IoT</h1>
+    <p id="conexion" class="estado">Cargando...</p>
 
-    <form id="form">
-      <input id="nuevo" type="text" placeholder="Escribe un nuevo mensaje" required>
-      <button type="submit">Guardar</button>
-    </form>
-    <p id="estado" class="estado"></p>
+    <div class="datos">
+      <div><p class="label">Barrera</p><p id="barrera" class="actual">–</p></div>
+      <div><p class="label">Distancia</p><p id="distancia" class="actual">–</p></div>
+      <div><p class="label">Vehículos</p><p id="contador" class="actual">0</p></div>
+    </div>
+
+    <p class="label">Modo</p>
+    <div class="modos">
+      <button data-modo="automatico">Automático</button>
+      <button data-modo="abierto">Abrir</button>
+      <button data-modo="cerrado">Cerrar</button>
+    </div>
+
+    <p class="label">Historial</p>
+    <table>
+      <thead><tr><th>#</th><th>Hora</th><th>Resultado</th></tr></thead>
+      <tbody id="historial"></tbody>
+    </table>
   </main>
   <script src="app.js"></script>
 </body>
