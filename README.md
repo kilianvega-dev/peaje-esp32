@@ -4,7 +4,7 @@ Proyecto de **Máquinas Digitales (Unillanos 2026-2)**. Una maqueta de peaje: un
 
 Integrantes:
 
-- Kilian Vega — 160005140
+- Kilian Vega — 160005140 ([@kilianvega-dev](https://github.com/kilianvega-dev))
 - Johan Moralez — 160005122
 
 Basado en el repositorio de ejemplo del docente: [RonyTrespalacios/esp32-mensaje-web](https://github.com/RonyTrespalacios/esp32-mensaje-web).
