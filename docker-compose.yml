@@ -4,6 +4,10 @@ services:
     container_name: peaje-backend
     ports:
       - "8000:8000"
+    environment:
+      - ARCHIVO_ESTADO=/data/estado.json
+    volumes:
+      - datos:/data   # el contador y el registro sobreviven a stop/start y a reconstruir la imagen
     restart: unless-stopped
 
   frontend:
@@ -16,3 +20,6 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+
+volumes:
+  datos:

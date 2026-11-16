@@ -17,7 +17,7 @@ Basado en el repositorio de ejemplo del docente: [RonyTrespalacios/esp32-mensaje
 |---|---|
 | **Sensor** | HC-SR04 (distancia por ultrasonido) |
 | **Actuador** | Servo SG90 con un palito como barrera |
-| **Página web** | Estado de la barrera, distancia, contador de vehículos, historial con hora y selector de modo |
+| **Página web** | Vista lateral del peaje en vivo (carro, sensor, barrera), contador, registro de eventos y selector de modo |
 
 **Modos del peaje** (se eligen en la página):
 
@@ -32,6 +32,8 @@ Basado en el repositorio de ejemplo del docente: [RonyTrespalacios/esp32-mensaje
 3. **Histéresis.** Se considera que llegó un carro a menos de 10 cm, y que se fue a más de 15 cm. Ese margen evita contar dos veces por ruido del sensor.
 4. **Sin `delay()`.** El firmware usa `millis()` para medir cada 60 ms y hablar con el backend cada segundo sin congelarse.
 5. **Funciona sin red.** Si no hay WiFi, el peaje sigue funcionando en modo automático.
+6. **El contador no se pierde.** El backend guarda modo, contador y registro en `/data/estado.json`, dentro del volumen `datos` de Docker. Sobrevive a `docker compose stop/start` y a reconstruir la imagen; `docker compose down -v` lo borra para empezar de cero.
+7. **Detecta si el sensor falla.** Si pasan ~2 s seguidos sin eco, la ESP32 reporta `sensor_ok: false` y la página lo marca. Para eso el HC-SR04 debe apuntar a una pared fija de la maqueta (más lejos que `CM_SALE`), así siempre hay eco cuando funciona.
 
 ## 2. Arquitectura
 
@@ -69,11 +71,11 @@ El HC-SR04 está dibujado por detrás para que los cables no se crucen: guiarse 
 | Método y ruta | Quién la usa | Cuerpo / respuesta |
 |---|---|---|
 | `GET /api/actuador` | ESP32 | → `{"modo": "automatico"}` |
-| `POST /api/lecturas` | ESP32 | `{"distancia": 12.4, "barrera": "cerrada", "vehiculo": false}` |
-| `GET /api/estado` | Página | → modo, barrera, distancia, contador, historial |
+| `POST /api/lecturas` | ESP32 | `{"distancia": 12.4, "barrera": "cerrada", "vehiculo": false, "presente": false, "sensor_ok": true}` |
+| `GET /api/estado` | Página | → modo, barrera, distancia, presente, sensor_ok, contador, historial, esp32_conectada |
 | `PUT /api/modo` | Página | `{"modo": "automatico" \| "abierto" \| "cerrado"}` |
 
-`vehiculo` es `true` solo en el instante en que llega un carro. Con eso el backend suma al contador y agrega una fila al historial. La documentación interactiva queda en <http://localhost:8000/docs>.
+`vehiculo` es `true` solo en el instante en que llega un carro; con eso el backend suma al contador. `presente` dice si hay un carro frente al sensor ahora mismo (la página dibuja el carro). El registro guarda llegadas de vehículos, fallas del sensor (origen ESP32) y cambios de modo (origen Web). La documentación interactiva queda en <http://localhost:8000/docs>.
 
 ## 5. Puesta en marcha
 
@@ -92,7 +94,7 @@ Se puede simular la ESP32 con `curl` y ver cómo cambia la página:
 
 ```bash
 curl -X POST localhost:8000/api/lecturas -H "Content-Type: application/json" \
-     -d '{"distancia": 8, "barrera": "abierta", "vehiculo": true}'
+     -d '{"distancia": 8, "barrera": "abierta", "vehiculo": true, "presente": true}'
 ```
 
 ## 6. Etapas

@@ -3,32 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peaje IoT</title>
+  <title>Peaje · ESP32</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="card">
-    <h1>Peaje IoT</h1>
-    <p id="conexion" class="estado">Cargando...</p>
+  <header>
+    <h1>Peaje · ESP32</h1>
+    <p id="conexion" class="pill">Conectando…</p>
+  </header>
 
-    <div class="datos">
-      <div><p class="label">Barrera</p><p id="barrera" class="actual">–</p></div>
-      <div><p class="label">Distancia</p><p id="distancia" class="actual">–</p></div>
-      <div><p class="label">Vehículos</p><p id="contador" class="actual">0</p></div>
-    </div>
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Carril de entrada</h2>
+        <p class="mono">Vehículos <strong id="contador">0</strong></p>
+      </div>
 
-    <p class="label">Modo</p>
-    <div class="modos">
-      <button data-modo="automatico">Automático</button>
-      <button data-modo="abierto">Abrir</button>
-      <button data-modo="cerrado">Cerrar</button>
-    </div>
+      <div class="escena" id="escena">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Vista lateral del peaje: carro, sensor y barrera">
+          <!-- caseta -->
+          <line x1="420" y1="120" x2="552" y2="120" class="trazo grueso"/>
+          <rect x="430" y="120" width="112" height="130" class="trazo caseta"/>
+          <rect x="452" y="145" width="68" height="40" class="trazo"/>
 
-    <p class="label">Historial</p>
-    <table>
-      <thead><tr><th>#</th><th>Hora</th><th>Resultado</th></tr></thead>
-      <tbody id="historial"></tbody>
-    </table>
+          <!-- carro: aparece cuando la ESP32 reporta presente=true -->
+          <g id="carro" class="carro"><g transform="translate(118 0)">
+            <path d="M100 238 V214 Q100 206 108 206 H134 L150 186 H196 L214 206 H226 Q234 206 234 214 V238 Z" class="trazo caseta"/>
+            <circle cx="130" cy="240" r="11" class="rueda"/>
+            <circle cx="204" cy="240" r="11" class="rueda"/>
+          </g></g>
+
+          <!-- poste, sensor y brazo de la barrera (gira 90° como el servo) -->
+          <rect x="404" y="166" width="12" height="84" class="relleno"/>
+          <g id="ondas" class="ondas">
+            <path d="M380 216 Q372 225 380 234" class="trazo"/>
+            <path d="M370 210 Q358 225 370 240" class="trazo"/>
+          </g>
+          <rect x="386" y="218" width="18" height="14" rx="2" id="sensor" class="sensor"/>
+          <g id="brazo" class="brazo">
+            <line x1="410" y1="170" x2="250" y2="170" class="brazo-base"/>
+            <line x1="404" y1="170" x2="250" y2="170" class="brazo-franjas"/>
+          </g>
+          <circle cx="410" cy="170" r="6" class="relleno"/>
+
+          <rect x="20" y="250" width="600" height="12" rx="2" class="asfalto"/>
+          <text x="330" y="282" class="etiqueta" text-anchor="middle">SENSOR · <tspan id="distancia">–</tspan></text>
+          <text x="486" y="282" class="etiqueta" text-anchor="middle">BARRERA · <tspan id="barrera">–</tspan></text>
+        </svg>
+        <p class="aviso" id="aviso"></p>
+      </div>
+
+      <div class="panel-foot">
+        <span class="mono suave">Modo</span>
+        <div class="modos" role="group" aria-label="Modo del peaje">
+          <button data-modo="automatico">Automático</button>
+          <button data-modo="abierto">Abierto</button>
+          <button data-modo="cerrado">Cerrado</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>Registro</h2></div>
+      <table>
+        <thead><tr><th>Hora</th><th>Origen</th><th>Evento</th></tr></thead>
+        <tbody id="historial"></tbody>
+      </table>
+      <p class="vacio" id="vacio">Aún no hay eventos.</p>
+    </section>
   </main>
   <script src="app.js"></script>
 </body>
